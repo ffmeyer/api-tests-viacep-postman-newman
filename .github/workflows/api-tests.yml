@@ -21,4 +21,4 @@ jobs:
         run: npm install -g newman
 
       - name: Run Tests
-        run: newman run collections/viacep_collection.json -e environments/local.postman_environment.json
+        run: newman run collections/viacep_collection.json -e environments/viacep.postman_environment
