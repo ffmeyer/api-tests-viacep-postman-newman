@@ -13,8 +13,7 @@ Thumbs.db
 .idea/
 *.swp
 
-# Postman / Newman report output
-reports/
+# Newman report output
 newman/*
 *.htm
 *.html
