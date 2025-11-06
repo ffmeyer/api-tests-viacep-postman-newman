@@ -33,7 +33,11 @@ jobs:
             -r cli,htmlextra \
             --reporter-htmlextra-export reports/report.html
 
-      - name: Upload report to Pages artifact
+      - name: Create redirect index.html
+        run: |
+          echo '<meta http-equiv="refresh" content="0; url=report.html" />' > reports/index.html
+
+      - name: Upload artifact to GitHub Pages
         uses: actions/upload-pages-artifact@v3
         with:
           path: reports/
