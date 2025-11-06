@@ -22,3 +22,6 @@ newman/*
 # Environment and runtime files
 .env
 *.local
+
+# workaround para carregar dinamimcamente o schema no ambiente
+runtime.environment.jso
