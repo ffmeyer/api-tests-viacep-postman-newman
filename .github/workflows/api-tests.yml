@@ -20,5 +20,10 @@ jobs:
       - name: Install Newman
         run: npm install -g newman
 
-      - name: Run Tests
-        run: newman run collections/viacep_collection.json -e environments/viacep.postman_environment
+      - name: Run API Tests
+        run: |
+        node load-schema.js
+        newman run collections/viacep.postman_collection.json \
+          -e environments/viacep.postman_environment.json \
+          -r htmlextra \
+          --reporter-htmlextra-export reports/report.html
