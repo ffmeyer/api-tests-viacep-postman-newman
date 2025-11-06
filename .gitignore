@@ -24,4 +24,4 @@ newman/*
 *.local
 
 # workaround para carregar dinamimcamente o schema no ambiente
-runtime.environment.jso
+runtime.environment.json

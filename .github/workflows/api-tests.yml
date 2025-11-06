@@ -28,6 +28,7 @@ jobs:
         run: |
           node load-schema.js
           newman run collections/viacep.postman_collection.json \
+            -e environments/viacep.postman_environment.json \
             -e runtime.environment.json \
             -r cli,htmlextra \
             --reporter-htmlextra-export reports/report.html
