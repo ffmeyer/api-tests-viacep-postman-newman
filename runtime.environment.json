@@ -1,0 +1,32 @@
+{
+  "id": "viacep-env-id",
+  "name": "local",
+  "values": [
+    {
+      "key": "baseUrl",
+      "value": "https://viacep.com.br",
+      "enabled": true
+    },
+    {
+      "key": "cepValido",
+      "value": "01001000",
+      "enabled": true
+    },
+    {
+      "key": "cepInexistente",
+      "value": "99999999",
+      "enabled": true
+    },
+    {
+      "key": "cepInvalido",
+      "value": "abc123",
+      "enabled": true
+    },
+    {
+      "key": "schema_viacep",
+      "value": "{\n  \"id\": \"viacep-env-id\",\n  \"name\": \"local\",\n  \"values\": [\n    {\n      \"key\": \"baseUrl\",\n      \"value\": \"https://viacep.com.br\",\n      \"enabled\": true\n    },\n    {\n      \"key\": \"cepValido\",\n      \"value\": \"01001000\",\n      \"enabled\": true\n    },\n    {\n      \"key\": \"cepInexistente\",\n      \"value\": \"99999999\",\n      \"enabled\": true\n    },\n    {\n      \"key\": \"cepInvalido\",\n      \"value\": \"abc123\",\n      \"enabled\": true\n    },\n    {\n      \"key\": \"schema_viacep\",\n      \"value\": \"{\\\"type\\\":\\\"object\\\",\\\"properties\\\":{\\\"cep\\\":{\\\"type\\\":\\\"string\\\"},\\\"logradouro\\\":{\\\"type\\\":\\\"string\\\"},\\\"complemento\\\":{\\\"type\\\":\\\"string\\\"},\\\"bairro\\\":{\\\"type\\\":\\\"string\\\"},\\\"localidade\\\":{\\\"type\\\":\\\"string\\\"},\\\"uf\\\":{\\\"type\\\":\\\"string\\\"},\\\"ibge\\\":{\\\"type\\\":\\\"string\\\"},\\\"gia\\\":{\\\"type\\\":\\\"string\\\"},\\\"ddd\\\":{\\\"type\\\":\\\"string\\\"},\\\"siafi\\\":{\\\"type\\\":\\\"string\\\"}},\\\"required\\\":[\\\"cep\\\",\\\"logradouro\\\",\\\"bairro\\\",\\\"localidade\\\",\\\"uf\\\"]}\",\n      \"enabled\": true\n    }\n  ],\n  \"timestamp\": 0\n}\n",
+      "type": "text",
+      "enabled": true
+    }
+  ]
+}

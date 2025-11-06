@@ -1,0 +1,24 @@
+
+name: API Tests
+
+on:
+  push:
+    branches: ["main"]
+
+jobs:
+  run-api-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Install Node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "18"
+
+      - name: Install Newman
+        run: npm install -g newman
+
+      - name: Run Tests
+        run: newman run collections/viacep_collection.json -e environments/local.postman_environment.json

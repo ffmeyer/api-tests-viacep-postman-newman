@@ -1,0 +1,115 @@
+{
+	"info": {
+		"_postman_id": "0b1076f1-bbf4-40bb-b8a7-1d60225190e0",
+		"name": "ViaCEP API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "2682219",
+		"_collection_link": "https://crimson-sunset-187535.postman.co/workspace/viacep~2c66c50c-a758-42b3-8a5a-725d908bc7e5/collection/2682219-0b1076f1-bbf4-40bb-b8a7-1d60225190e0?action=share&source=collection_link&creator=2682219"
+	},
+	"item": [
+		{
+			"name": "Consultar CEP Válido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 200\", function () { pm.response.to.have.status(200); });",
+							"var json = pm.response.json();",
+							"pm.test(\"Logradouro é texto válido\", function () { pm.expect(json.logradouro).to.be.a('string'); });",
+							"pm.test(\"Valida schema JSON\", function () {",
+							"  var schema = pm.environment.get(\"schema_viacep\");",
+							"  pm.expect(tv4.validate(json, JSON.parse(schema))).to.be.true;",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ws/{{cepValido}}/json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ws",
+						"{{cepValido}}",
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar CEP Inexistente",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 200\", function () { pm.response.to.have.status(200); });",
+							"var json = pm.response.json();",
+							"pm.test(\"Retorno indica erro\", function () { pm.expect(json.erro).to.eql(\"true\"); });"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ws/{{cepInexistente}}/json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ws",
+						"{{cepInexistente}}",
+						"json"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Consultar CEP Inválido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code é 400 ou 200 com erro\", function () {",
+							"  pm.expect([400]).to.include(pm.response.code);",
+							"});"
+						],
+						"type": "text/javascript",
+						"packages": {},
+						"requests": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}/ws/{{cepInvalido}}/json",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"ws",
+						"{{cepInvalido}}",
+						"json"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
